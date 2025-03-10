@@ -1,0 +1,8 @@
+---
+collections:
+  - name: ibm.ibm_zos_core
+    version: 1.9.0
+  - name: ibm.ibm_zos_ims
+  - name: ibm.ibm_zos_cics
+  - name: community.general
+  - name: community.crypto

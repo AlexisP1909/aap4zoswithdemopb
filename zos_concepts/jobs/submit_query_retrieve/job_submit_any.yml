@@ -1,0 +1,60 @@
+---
+- hosts: zos_host
+  collections:
+    - ibm.ibm_zos_core
+  gather_facts: false
+  vars:
+    job_name: "{{ job_name_survey }}"
+    job_contents: "{{ job_contents_survey }}"
+  environment: "{{ environment_vars }}"
+  tasks:
+
+    - name: Copy JCL from template
+      zos_copy: 
+        content: "{{ job_contents }}"
+        dest: "/tmp/{{ job_name }}.jcl"
+        encoding:
+          from: ISO8859-1
+          to: IBM-037
+        force: true
+
+    - name: Get job contents from file.
+      command: "cat /tmp/{{ job_name }}.jcl"
+      register: job_contents_from_file
+
+    - name: Print job contents from file.
+      debug:
+        msg: "{{ job_contents_from_file.stdout_lines }}"
+    
+    - name: Submit {{ job_name }} job. Ignore failure initially so that results can be captured and printed.
+      zos_job_submit:
+        src: "/tmp/{{ job_name }}.jcl"
+        location: USS
+        wait_time_s: 60
+      register: job_submit
+      no_log: true
+      ignore_errors: true
+
+    - name: Set fact with job ID from job submission.
+      set_fact:
+        job_id: "{{ job_submit | regex_search('JOB\\d{5}') }}"
+        
+    - block:
+      - name: Get job output for job ID {{ job_id }}
+        zos_job_output:
+          job_id: "{{ job_id }}"
+        register: job_output_result
+        no_log: true
+
+      - name: Print job output for job ID {{ job_id }}.
+        debug:
+          msg: "{{ job_output_result }}"
+
+      rescue:
+        - name: Print output of {{ job_id }} in alternate way because of 'invalid start byte' bug in output of failed tasks.
+          debug:
+            msg: "{{ job_output_result.msg.split('\\n') }}"
+
+        - name: Fail playbook to accurately reflect that the {{ job_id }} failed.
+          fail:
+            msg: "{{ job_id }} failed, see above output for more details."
