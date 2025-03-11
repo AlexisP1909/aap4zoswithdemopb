@@ -30,7 +30,7 @@
       zos_job_submit:
         src: "/tmp/{{ job_name }}.jcl"
         location: USS
-        wait_time_s: 60
+        wait_time_s: 200
       register: job_submit
       no_log: false
       ignore_errors: true
