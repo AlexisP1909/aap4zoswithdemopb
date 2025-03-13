@@ -25,10 +25,10 @@ PYZ: "/usr/lpp/IBM/cyp/v3r11/pyz"
 ansible_python_interpreter: "{{PYZ}}/bin/python3"
 
 # the path to root of ZOAU installation
-ZOAU: "path_to_zoau_installation_on_zos_target"
+ZOAU: "/usr/lpp/IBM/zoautil"
 
 # the path to the root of Java installation
-JAVA: "path_to_java_installation_on_zos_target"
+JAVA: "/usr/lpp/java170/J7.0_64"
 
 environment_vars:
   _BPXK_AUTOCVT: "ON"
@@ -44,8 +44,8 @@ environment_vars:
   _TAG_REDIR_OUT: "txt"
   LANG: "C"
   PYTHONSTDINENCODING: "cp1047"
-  WLP_USER_DIR: "/u/oeusr01"
-  WLP_OUTPUT_DIR: "u/oeusr01/servers"
+  WLP_USER_DIR: "/u/ibmuser"
+  WLP_OUTPUT_DIR: "u/ibmuser/servers"
 
 # ---------------------------------------------------------------------------- #
 #                        Liberty related variables                             #
@@ -59,8 +59,8 @@ liberty_server_path: '{{environment_vars.WLP_USER_DIR}}/servers/{{server_instanc
 # ---------------------------------------------------------------------------- #
 #                  User information for STARTED profiles                       #
 # ---------------------------------------------------------------------------- #
-TARGET_USER: target_user
-USER_GROUP: user_group
+TARGET_USER: ibmuser
+USER_GROUP: SYS1
 
 # Procedure library for JCL Procedure template
 PROC_LIB: USER.PRIVATE.PROCLIB
@@ -70,7 +70,7 @@ SERVER_PROC: WLPSRV1
 ANGEL_PROC: WLPANGL
 
 # Name for zFS dataset to be mounted to user directory
-data_set_name: targetuser.liberty.zfs
+data_set_name: ibmuser.liberty.zfs
 
 # ---------------------------------------------------------------------------- #
 #                        Playbook customization variables                      #
@@ -82,4 +82,4 @@ CUSTOMIZE: false
 ANGEL: false
 
 # Boolean value to determine if the authorized_services role runs -- enables z/OS authorized services
-AUTHORIZED_SERVICES: false
+AUTHORIZED_SERVICES: true
