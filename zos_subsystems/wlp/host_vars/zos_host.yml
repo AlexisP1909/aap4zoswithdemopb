@@ -59,18 +59,18 @@ liberty_server_path: '{{environment_vars.WLP_USER_DIR}}/servers/{{server_instanc
 # ---------------------------------------------------------------------------- #
 #                  User information for STARTED profiles                       #
 # ---------------------------------------------------------------------------- #
-TARGET_USER: ibmuser
+TARGET_USER: IBMUSER
 USER_GROUP: SYS1
 
 # Procedure library for JCL Procedure template
-PROC_LIB: USER.PRIVATE.PROCLIB
+PROC_LIB: SYS1.PROCLIB
 # Name of server procedure for STARTED profile
 SERVER_PROC: WLPSRV1
 # Name of angel process procedure for STARTED profile
 ANGEL_PROC: WLPANGL
 
 # Name for zFS dataset to be mounted to user directory
-data_set_name: ibmuser.liberty.zfs
+data_set_name: IBMUSER.LIBERTY.ZFS
 
 # ---------------------------------------------------------------------------- #
 #                        Playbook customization variables                      #
