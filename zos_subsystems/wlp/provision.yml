@@ -12,7 +12,7 @@
     - name: Provision, configure, and start Liberty server instance
       block:
         # Checks to see if the server under given name exists
-        - name: Check if server instance exists
+        - name: OOOUAH
           stat:
             path: "{{environment_vars.WLP_USER_DIR}}/servers/{{server_instance_name}}"
           register: instance
