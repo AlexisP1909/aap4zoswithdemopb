@@ -37,6 +37,7 @@ environment_vars:
   PYTHONPATH: "{{ ZOAU }}/lib"
   LIBPATH: "{{ ZOAU }}/lib:{{PYZ}}/lib:/lib:/usr/lib:."
   PATH: "{{ ZOAU }}/bin:{{PYZ}}/bin:/bin:/var/bin:{{JAVA}}"
+  TOTO: "aaAAAAAAAAAAAA"
   JAVA_HOME: "{{JAVA}}"
   _CEE_RUNOPTS: "FILETAG(AUTOCVT,AUTOTAG) POSIX(ON)"
   _TAG_REDIR_ERR: "txt"
