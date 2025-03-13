@@ -15,7 +15,7 @@
 
 
 # the path to the root of IBM python installation
-PYZ: "path_to_python_installation_on_zos_target"
+PYZ: "/usr/lpp/IBM/cyp/v3r11/pyz"
 
 
 ################################################################################
