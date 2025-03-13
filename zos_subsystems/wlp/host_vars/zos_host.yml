@@ -59,7 +59,7 @@ liberty_server_path: '{{environment_vars.WLP_USER_DIR}}/servers/{{server_instanc
 # ---------------------------------------------------------------------------- #
 #                  User information for STARTED profiles                       #
 # ---------------------------------------------------------------------------- #
-TARGET_USER: IBMUSER
+TARGET_USER: ibmuser
 USER_GROUP: SYS1
 
 # Procedure library for JCL Procedure template
@@ -70,13 +70,13 @@ SERVER_PROC: WLPSRV1
 ANGEL_PROC: WLPANGL
 
 # Name for zFS dataset to be mounted to user directory
-data_set_name: IBMUSER.LIBERTY.ZFS
+data_set_name: IBMUSER.liberty.zfs
 
 # ---------------------------------------------------------------------------- #
 #                        Playbook customization variables                      #
 # ---------------------------------------------------------------------------- #
 # Boolean value to determine if configure_server role runs -- transfers optional configuration files
-CUSTOMIZE: false
+CUSTOMIZE: true
 
 # Boolean value to determine if the angel process related roles run --  creates started profiles for angel process and starts angel process
 ANGEL: false
