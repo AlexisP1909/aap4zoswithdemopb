@@ -6,13 +6,10 @@
   environment: "{{environment_vars}}"
 
   tasks:
-    - name: Debug environment
-      debug:
-       var: environment
     - name: Provision, configure, and start Liberty server instance
       block:
         # Checks to see if the server under given name exists
-        - name: OOOUAH
+        - name: Check if server instance exists
           stat:
             path: "{{environment_vars.WLP_USER_DIR}}/servers/{{server_instance_name}}"
           register: instance

@@ -30,6 +30,9 @@ ZOAU: "/usr/lpp/IBM/zoautil"
 # the path to the root of Java installation
 JAVA: "/usr/lpp/java170/J7.0_64"
 
+# the name of the CICS JVMServer resource
+CICS_jvmresource: "TESTWLP"
+
 environment_vars:
   _BPXK_AUTOCVT: "ON"
   ZOAU: "{{ZOAU}}/bin"
@@ -44,15 +47,15 @@ environment_vars:
   _TAG_REDIR_OUT: "txt"
   LANG: "C"
   PYTHONSTDINENCODING: "cp1047"
-  WLP_USER_DIR: "/u/ibmuser"
-  WLP_OUTPUT_DIR: "u/ibmuser/servers"
+  WLP_USER_DIR: "/u/cicsuser/CICSTS61/{{CICS_jvmresource}}/usr"
+  WLP_OUTPUT_DIR: "u/cicsuser/CICSTS61/{{CICS_jvmresource}}/"
 
 # ---------------------------------------------------------------------------- #
 #                        Liberty related variables                             #
 # ---------------------------------------------------------------------------- #
 server_instance_name: ansible_sample
 
-liberty_path: '/usr/lpp/zWAS/WAS900/Liberty/V19R00'
+liberty_path: '/usr/lpp/cicsts/wlp'
 liberty_bin_path: '{{liberty_path}}/bin'
 liberty_server_path: '{{environment_vars.WLP_USER_DIR}}/servers/{{server_instance_name}}'
 
