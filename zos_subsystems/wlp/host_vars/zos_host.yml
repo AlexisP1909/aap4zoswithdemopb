@@ -28,7 +28,7 @@ ansible_python_interpreter: "{{PYZ}}/bin/python3"
 ZOAU: "/usr/lpp/IBM/zoautil"
 
 # the path to the root of Java installation
-JAVA: "/usr/lpp/java170/J7.0_64"
+JAVA: "/usr/lpp/java/java11/J11.0_64"
 
 # the name of the CICS JVMServer resource
 CICS_jvmresource: "TESTWLP"
