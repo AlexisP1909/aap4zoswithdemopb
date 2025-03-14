@@ -31,7 +31,7 @@ ZOAU: "/usr/lpp/IBM/zoautil"
 JAVA: "/usr/lpp/java/java11/J11.0_64"
 
 # the name of the CICS JVMServer resource
-CICS_jvmresource: "TESTWLP"
+CICS_jvmresource: "ANSIWLP"
 
 environment_vars:
   _BPXK_AUTOCVT: "ON"
