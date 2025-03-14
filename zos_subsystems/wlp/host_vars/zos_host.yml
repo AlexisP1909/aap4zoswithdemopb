@@ -47,7 +47,7 @@ environment_vars:
   _TAG_REDIR_OUT: "txt"
   LANG: "C"
   PYTHONSTDINENCODING: "cp1047"
-  WLP_USER_DIR: "/var/cics/wlp/usr"
+  WLP_USER_DIR: "/var/cicsts/wlp/usr"
   WLP_OUTPUT_DIR: "u/cicsuser/CICSTS61/{{CICS_jvmresource}}/"
 
 # ---------------------------------------------------------------------------- #
@@ -73,7 +73,7 @@ SERVER_PROC: WLPSRV1
 ANGEL_PROC: WLPANGL
 
 # Name for zFS dataset to be mounted to user directory
-data_set_name: CICSUSER.liberty.zfs
+data_set_name: CICSUSR.liberty.zfs
 
 # ---------------------------------------------------------------------------- #
 #                        Playbook customization variables                      #
