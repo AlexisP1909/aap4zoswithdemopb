@@ -47,7 +47,7 @@ environment_vars:
   _TAG_REDIR_OUT: "txt"
   LANG: "C"
   PYTHONSTDINENCODING: "cp1047"
-  WLP_USER_DIR: "/u/cicsuser/CICSTS61/{{CICS_jvmresource}}/usr"
+  WLP_USER_DIR: "usr/lpp/cicsts/wlp/usr"
   WLP_OUTPUT_DIR: "u/cicsuser/CICSTS61/{{CICS_jvmresource}}/"
 
 # ---------------------------------------------------------------------------- #
