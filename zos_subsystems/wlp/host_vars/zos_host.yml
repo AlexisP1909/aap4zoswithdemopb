@@ -73,7 +73,7 @@ SERVER_PROC: WLPSRV1
 ANGEL_PROC: WLPANGL
 
 # Name for zFS dataset to be mounted to user directory
-data_set_name: IBMUSER.liberty.zfs
+data_set_name: CICSUSER.liberty.zfs
 
 # ---------------------------------------------------------------------------- #
 #                        Playbook customization variables                      #
