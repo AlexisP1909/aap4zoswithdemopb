@@ -79,7 +79,7 @@ data_set_name: CICSUSR.LIBERTY.ZFS
 #                        Playbook customization variables                      #
 # ---------------------------------------------------------------------------- #
 # Boolean value to determine if configure_server role runs -- transfers optional configuration files
-CUSTOMIZE: true
+CUSTOMIZE: false
 
 # Boolean value to determine if the angel process related roles run --  creates started profiles for angel process and starts angel process
 ANGEL: false

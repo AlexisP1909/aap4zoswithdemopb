@@ -30,9 +30,9 @@
             name: create_server
 
         # role used to transfer custom configuration files; runs based on boolean value of CUSTOMIZE variable
-        #- include_role:
-        #    name: configure_server
-        #  when: CUSTOMIZE | bool
+        - include_role:
+            name: configure_server
+          when: CUSTOMIZE | bool
 
         # invoke role to enable starting the server as a STARTED task
         - include_role:
