@@ -20,7 +20,7 @@
 
 # TO-DO CHECK IF AN INSTANCE IS ALREADY THERE
      - name: HTTP create a JVMSERVER resource.
-       ibm_zos_cics.cmci_action:
+       ibm.ibm_zos_cics.cmci_action:
         cmci_host: "{{ cmci_host }}"
         cmci_port: "{{ cmci_port | int }}"
         cmci_user: "{{ cmci_user | default(omit) }}"
