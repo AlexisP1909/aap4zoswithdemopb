@@ -42,33 +42,15 @@
   hosts: "localhost"
   gather_facts: false
 
-  vars_prompt:
-    - name: cmci_host
-      prompt: Target CMCI hostname
-      private: false
-    - name: cmci_port
-      prompt: Target CMCI port
-      private: false
-    - name: scheme
-      prompt: CMCI scheme
-      private: false
-      default: "https"
-    - name: cmci_user
-      prompt: CMCI user name (leave blank for unauthenticated)
-      private: false
-    - name: cmci_password
-      prompt: CMCI password (leave blank for unauthenticated)
-    - name: context
-      prompt: Target CPSM context
-      private: false
-    - name: scope
-      prompt: Target CPSM scope
-      private: false
-    - name: csdgroup
-      prompt: Target CSD group to create the definition in
-      private: false
-
   vars:
+    cmci_host: "your_cmci_host"
+    cmci_port: "your_cmci_port"
+    scheme: "https"
+    cmci_user: "your_cmci_user"
+    cmci_password: "your_cmci_password"
+    context: "your_cpsm_context"
+    scope: "your_cpsm_scope"
+    csdgroup: "your_csd_group"
     program: "HELOWRLD"
 
   tasks:
@@ -98,7 +80,7 @@
           csdgroup: "{{ csdgroup }}"
         create_parameters:
           - name: "CSD"
-
+  
     - name: "HTTP Update progdef"
       delegate_to: "localhost"
       ibm.ibm_zos_cics.cmci_update:

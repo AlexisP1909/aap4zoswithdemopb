@@ -1,0 +1,41 @@
+---
+- hosts: zos_host
+  collections:
+    - ibm.ibm_zos_core
+    - ibm.ibm_zos_cics
+  gather_facts: false
+  environment: "{{ environment_vars }}"
+
+
+  tasks:
+   - name: Provision, configure, and start a Liberty server instance on ibm.ibm_zos_cics
+     block:
+     
+     - name: Make sure CMCI module dependencies are installed
+       ansible.builtin.pip:
+         name:
+           - requests
+           - xmltodict
+           - typing;python_version<"3.5"       
+
+# TO-DO CHECK IF AN INSTANCE IS ALREADY THERE
+     - name: HTTP create a JVMSERVER resource.
+       ibm_zos_cics.cmci_action:
+        cmci_host: "{{ cmci_host }}"
+        cmci_port: "{{ cmci_port | int }}"
+        cmci_user: "{{ cmci_user | default(omit) }}"
+        cmci_password: "{{ cmci_password | default(omit) }}"
+        scheme: "{{ scheme }}"
+        cics_system: "{{cmci_system}}"
+        action: "CREATE"
+        object_type: "JVMSERVER"
+        object_name: "{{JVM_name}}"
+        description: "{{JVM_description}}"
+        jvmprofile: "{{JVM_profile_name}}"
+        lerunopts: "DFHAXRO"
+        threadlimit: "015"
+       register: create_jvmserver_result
+
+     - name: Debug output JVMServer creation
+       debug:
+         var: create_jvmserver_result.msg

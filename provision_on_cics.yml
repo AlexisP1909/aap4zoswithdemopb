@@ -1,8 +1,0 @@
----
-- hosts: zos_host
-  collections:
-    - ibm.ibm_zos_core
-    - ibm.ibm_zos_cics
-  gather_facts: false
-  environment: "{{ environment_vars }}"
-  tasks:    
