@@ -48,7 +48,7 @@ environment_vars:
   LANG: "C"
   PYTHONSTDINENCODING: "cp1047"
   WLP_USER_DIR: "/var/cicsts/wlp/usr"
-  WLP_OUTPUT_DIR: "u/cicsuser/CICSTS61/{{CICS_jvmresource}}/"
+  WLP_OUTPUT_DIR: "/u/cicsuser/CICSTS61/{{CICS_jvmresource}}/"
 
 # ---------------------------------------------------------------------------- #
 #                        Liberty related variables                             #
