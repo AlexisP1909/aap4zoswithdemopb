@@ -1,12 +1,23 @@
 ---
-- name: Modify line in dataset after {{expression_to_insert_after}}
+- name: Modify line in dataset after USSHOME=&USSHOME
   hosts: zos_host
   gather_facts: no
   environment: "{{environment_vars}}"
+  
+  vars:
+    dataset_src: "IBMUSER.ANSIB.TESTLIF"
+    expression_to_insert_after: "USSHOME=&USSHOME"
+    line_replacement: ",'JVMPROFILEDIR=/var/cicsts/JVMProfiles'"
+  
   tasks:
     - name: Insert a line where the expression is found
       ibm.ibm_zos_core.zos_lineinfile:
-        src: '{{dataset_src}}'
-        regexp: '(.*{{expression_to_insert_after}})(.*)$'
-        line: "\\1{{line_replacement}}\\3"
+        src: "{{dataset_src}}"
+        regexp: "(.*{{expression_to_insert_after}})(.*)"
+        line: "\\1{{line_replacement}}\\2"
         backrefs: true
+      register: lineinfile_result
+      
+    - name: Debug output
+      debug:
+        var: lineinfile_result
