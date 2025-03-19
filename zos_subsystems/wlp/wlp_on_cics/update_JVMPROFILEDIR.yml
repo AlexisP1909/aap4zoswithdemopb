@@ -7,7 +7,7 @@
     - name: Insert a line where the expression is found
       ibm.ibm_zos_core.zos_lineinfile:
         src: '{{dataset_src}}'
-        regexp: '({{expression_to_insert_after}})(.*)'
-        line: "\\1, {{line_replacement}}\\2"
+        regexp: '(.*{{expression_to_insert_after}})(.*)'
+        line: "\\1{{line_replacement}}\\2"
         backrefs: true
         state: present
