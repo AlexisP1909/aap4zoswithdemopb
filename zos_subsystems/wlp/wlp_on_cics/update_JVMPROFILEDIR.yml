@@ -7,12 +7,7 @@
   tasks:
     - name: Insert a line where the expression is found
       ibm.ibm_zos_core.zos_lineinfile:
-        src: "IBMUSER.ANSIB.TESTLIF(TEST)"
-        regexp: "(.*{{expression_to_insert_after}})(.*)"
-        line: '\1Aaaaaaaa\3'
-        backrefs: true
-      register: lineinfile_result
-      
-    - name: Debug output
-      debug:
-        var: lineinfile_result
+        src: '{{dataset_src}}'
+        line: "{{line_replacement}}"
+        insertafter: {{expression_to_insert_after}}
+        state: present
