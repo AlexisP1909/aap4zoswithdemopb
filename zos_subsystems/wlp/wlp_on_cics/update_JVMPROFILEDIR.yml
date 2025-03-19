@@ -9,6 +9,6 @@
       ibm.ibm_zos_core.zos_lineinfile:
         src: '{{dataset_src}}'
         line: "{{line_replacement}}"
-        insertafter: {{expression_to_insert_after}}
+        insertafter: "{{expression_to_insert_after}}"
         firstmatch: true
         state: present
