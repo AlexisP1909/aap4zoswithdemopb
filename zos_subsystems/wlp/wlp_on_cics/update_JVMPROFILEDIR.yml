@@ -16,5 +16,5 @@
 
     - name: "Stop CICS region immediately using job ID"
       ibm.ibm_zos_cics.stop_region:
-       job_name: {{CICSJOBNAME}}
+       job_name: "{{CICSJOBNAME}}"
 
