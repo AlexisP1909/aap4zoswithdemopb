@@ -13,9 +13,10 @@
         line: "{{line_replacement}}"
         force: true
         state: present
-    
 
-    - name: Start CICS region
-      ansible.builtin.ibm.ibm_zos_cics.start_region:
-       cics_region: CICSTS61
+    - name: "Stop CICS region immediately using job ID"
+      ibm.ibm_zos_cics.stop_region:
+       job_name: "{{cics_jobname}}"
+
+       
 
