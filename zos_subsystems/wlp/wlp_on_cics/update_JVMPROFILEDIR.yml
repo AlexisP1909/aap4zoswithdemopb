@@ -5,7 +5,7 @@
   environment: "{{environment_vars}}"
   
   tasks:
-  #This task replace the line of {{expression_to_insert_after}} with {{line_replacement}}
+  #This task replace the last line where {{expression_to_insert_after}} is found with {{line_replacement}}
     - name: Insert a line where the expression is found
       ibm.ibm_zos_core.zos_lineinfile:
         src: '{{dataset_src}}'
@@ -13,7 +13,8 @@
         line: "{{line_replacement}}"
         force: true
         state: present
+
     - name: "Stop CICS region immediately using job ID"
       ibm.ibm_zos_cics.stop_region:
        job_name: {{CICSJOBNAME}}
-           
+
