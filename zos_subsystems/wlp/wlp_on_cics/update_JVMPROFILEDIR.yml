@@ -1,5 +1,5 @@
 ---
-- name: Modify line in dataset after USSHOME=&USSHOME
+- name: Modify line in dataset after
   hosts: zos_host
   gather_facts: no
   environment: "{{environment_vars}}"
@@ -7,7 +7,7 @@
   tasks:
     - name: Insert a line where the expression is found
       ibm.ibm_zos_core.zos_lineinfile:
-        src: "{{dataset_src}}"
+        src: "IBMUSER.ANSIB.TESTLIF(TEST)"
         regexp: "(.*{{expression_to_insert_after}})(.*)"
         line: '\1Aaaaaaaa\3'
         backrefs: true
