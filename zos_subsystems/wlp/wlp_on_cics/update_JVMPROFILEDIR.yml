@@ -1,0 +1,11 @@
+---
+- name: Modify line in dataset IBMUSER.ANSIB.TESTLIF
+  hosts: zos_host
+  gather_facts: no
+  tasks:
+    - name: Insert ',JVMPROFILEDIR=/var/cicsts/JVMProfiles' after 'USSHOME=&USSHOME'
+      ibm.ibm_zos_core.zos_lineinfile:
+        src: 'IBMUSER.ANSIB.TESTLIF'
+        line: "'USSHOME=&USSHOME,JVMPROFILEDIR=/var/cicsts/JVMProfiles)'"
+        insert_after: 'USSHOME=&USSHOME'
+        state: present

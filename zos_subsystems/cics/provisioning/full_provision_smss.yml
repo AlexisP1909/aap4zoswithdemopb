@@ -95,7 +95,7 @@
           tcpip: "YES"
           usshome: /cics/cics740
           sysidnt: ZPY1
-          cpsmconn: "NO"
+          cpsmconn: "YES"
           sec: "NO"
       register: result
 
