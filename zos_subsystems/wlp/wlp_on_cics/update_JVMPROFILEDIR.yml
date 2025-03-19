@@ -8,6 +8,6 @@
     - name: Insert a line where the expression is found
       ibm.ibm_zos_core.zos_lineinfile:
         src: '{{dataset_src}}'
-        regexp: '^({{expression_to_insert_after}})(.*)$'
+        regexp: '({{expression_to_insert_after}})(.*)$'
         line: "{{line_replacement}}"
         state: present
