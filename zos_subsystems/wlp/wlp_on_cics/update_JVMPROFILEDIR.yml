@@ -9,4 +9,5 @@
         src: '{{dataset_src}}'
         regexp: '({{expression_to_insert_after}})(.*)'
         line: "\\1, {{line_replacement}}\\2"
+        backrefs: true
         state: present
