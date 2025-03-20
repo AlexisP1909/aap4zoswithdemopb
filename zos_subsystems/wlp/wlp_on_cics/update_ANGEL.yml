@@ -1,0 +1,17 @@
+---
+- name: Modify line in file after expression
+  hosts: zos_host
+  gather_facts: no
+  environment: "{{environment_vars}}"
+  
+  tasks:
+  #This task replace the last line where {{expression_to_insert_after}} is found with {{line_replacement}}
+    - name: Insert a line where the expression is found
+      ibm.ibm_zos_core.zos_lineinfile:
+        src: '{{dataset_src}}'
+        regexp: '{{expression_to_insert_after}}'
+        line: "{{line_replacement}}"
+        force: true
+        state: present
+       
+
