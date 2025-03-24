@@ -1,0 +1,14 @@
+---
+- hosts: zos_host
+  collections:
+    - ibm.ibm_zos_core
+    - ibm.ibm_zos_cics
+  gather_facts: false
+  environment: "{{ environment_vars }}"
+
+  tasks:
+     - name: Write a member to an existing PDS; replace if member exists
+       ibm.ibm_zos_core.zos_data_set:
+        name: {{pathtomember}}
+        type: member
+        replace: true 

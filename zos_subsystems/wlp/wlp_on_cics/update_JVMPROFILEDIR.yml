@@ -14,7 +14,3 @@
         force: true
         state: present
       register: lineinfile_result
-
-    - name: Debug results of lineinfile
-      ansible.builtin.debug :
-       vars: lineinfile_result.output[0].content
