@@ -1,0 +1,10 @@
+---
+- name: Stop CICS region
+  hosts: zos_host
+  gather_facts: no
+  environment: "{{environment_vars}}"
+
+  tasks:
+     - name: "Stop CICS region immediately using job ID"
+       ibm.ibm_zos_cics.stop_region:
+          job_name: "{{cics_jobname}}"

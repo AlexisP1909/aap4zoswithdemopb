@@ -13,10 +13,10 @@
         line: "{{line_replacement}}"
         force: true
         state: present
+      register: lineinfile_result
 
     - name: "Stop CICS region immediately using job ID"
       ibm.ibm_zos_cics.stop_region:
        job_name: "{{cics_jobname}}"
 
-       
-
+    - name: Debug results of lineinfile
