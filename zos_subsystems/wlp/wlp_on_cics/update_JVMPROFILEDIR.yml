@@ -17,4 +17,4 @@
 
     - name: Debug results of lineinfile
       ansible.builtin.debug :
-       var: lineinfile_result.return_content
+       var: lineinfile_result
