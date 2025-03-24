@@ -5,6 +5,10 @@
   environment: "{{environment_vars}}"
 
   tasks:
-     - name: "Stop CICS region immediately using job ID"
+     - name: Stop CICS region immediately using job ID
        ibm.ibm_zos_cics.stop_region:
           job_name: "{{cics_jobname}}"
+       register: stop_cics_results
+     - name: Debug Stop CICS region
+       ansible.builtin.debug :
+        vars: stop_cics_results.msg
