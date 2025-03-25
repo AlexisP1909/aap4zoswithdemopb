@@ -20,12 +20,10 @@
       delegate_to: "localhost"
       ibm.ibm_zos_cics.cmci_create:
         context: "{{ context }}"
-        scope: "{{ scope }}"
         cmci_host: "{{ cmci_host }}"
         cmci_port: "{{ cmci_port | int }}"
         cmci_user: "{{ cmci_user | default(omit) }}"
         cmci_password: "{{ cmci_password | default(omit) }}"
-        scheme: "{{ scheme }}"
         type: "CICSDefinitionProgram"
         attributes:
           name: "{{ program }}"
