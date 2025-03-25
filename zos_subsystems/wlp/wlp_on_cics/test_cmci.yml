@@ -2,9 +2,8 @@
 - name: CSD Install
 
   hosts: "zos_host"
-  gather_facts: false
+  gather_facts: "false"
   environment: "{{environment_vars}}"
-
 
   tasks:
     ############################################################################
@@ -20,10 +19,13 @@
     - name: "HTTP Create progdef"
       delegate_to: "localhost"
       ibm.ibm_zos_cics.cmci_create:
-        context : "{{context}}"
+        context: "{{ context }}"
+        scope: "{{ scope }}"
         cmci_host: "{{ cmci_host }}"
         cmci_port: "{{ cmci_port | int }}"
         cmci_user: "{{ cmci_user | default(omit) }}"
+        cmci_password: "{{ cmci_password | default(omit) }}"
+        scheme: "{{ scheme }}"
         type: "CICSDefinitionProgram"
         attributes:
           name: "{{ program }}"
