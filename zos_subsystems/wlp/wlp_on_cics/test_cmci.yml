@@ -24,7 +24,7 @@
         cmci_port: "{{ cmci_port | int }}"
         cmci_user: "{{ cmci_user | default(omit) }}"
         cmci_password: "{{ cmci_password | default(omit) }}"
-        type: "CICSDefinitionProgram"
+        type: "CICSJVMServer"
         attributes:
           name: "{{ program }}"
           csdgroup: "{{ csdgroup }}"
