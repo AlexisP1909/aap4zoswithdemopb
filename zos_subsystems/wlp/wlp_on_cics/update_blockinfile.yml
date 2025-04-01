@@ -1,0 +1,20 @@
+---
+- name: insert block in dataset after
+  hosts: zos_host
+  gather_facts: no
+  environment: "{{environment_vars}}"
+  
+  tasks:
+  #This task inserts a block after an expression
+    - name: Insert a block where the expression is found
+      ibm.ibm_zos_core.zos_blockinfile:
+        src: '{{dataset_src}}'
+        insertafter: "{{block_to_replace}}"
+        block: "{{block}}"
+        force: true
+        state: present  
+      register: blockinfile_result
+
+    - name: Debug results of blockinfile
+      ansible.builtin.debug :
+       var: blockinfile_result
