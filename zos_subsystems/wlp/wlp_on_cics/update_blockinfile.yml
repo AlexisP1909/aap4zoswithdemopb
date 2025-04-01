@@ -1,5 +1,5 @@
 ---
-- name: insert block in dataset after
+- name: insert block in dataset 
   hosts: zos_host
   gather_facts: no
   environment: "{{environment_vars}}"
@@ -9,7 +9,7 @@
     - name: Insert a block where the expression is found
       ibm.ibm_zos_core.zos_blockinfile:
         src: '{{dataset_src}}'
-        insertafter: "{{block_to_replace}}"
+        insertafter: "{{expression_to_insert_after}}"
         block: "{{block}}"
         force: true
         state: present  
