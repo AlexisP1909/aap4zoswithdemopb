@@ -10,7 +10,7 @@
       ibm.ibm_zos_core.zos_blockinfile:
         src: '{{dataset_src}}'
         insertafter: "{{expression_to_insert_after}}"
-        block: "{{block}}"
+        block: "{{block_to_insert}}"
         force: true
         state: present  
       register: blockinfile_result
