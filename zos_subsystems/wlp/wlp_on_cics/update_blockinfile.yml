@@ -10,15 +10,7 @@
       ibm.ibm_zos_core.zos_blockinfile:
         src: '{{dataset_src}}'
         insertafter: "{{expression_to_insert_after}}"
-        block: |
-          //EYUSMSS DD * 
-           TCPIPADDRESS(INADDR_ANY) 
-           CMCIPORT(4445) 
-          /* 
-          //JVMOUT   DD SYSOUT=* 
-          //JVMERR   DD SYSOUT=* 
-          //JVMTRACE DD SYSOUT=* 
-          //JVMLOG   DD SYSOUT=*
+        block: "{{block_to_insert}}"
         #the marker is to be written in a JCL
         marker: "//* {mark} ANSIBLE MANAGED BLOCK"
         force: true
