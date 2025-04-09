@@ -1,0 +1,14 @@
+---
+- name: Modify line in file after expression
+  hosts: zos_host
+  gather_facts: no
+  environment: "{{environment_vars}}"
+   
+  tasks:
+    - name: Print member content
+      command: "dcat {{ds_name}}"
+      register: result
+
+    - name: Response
+      debug:
+        msg: "{{ result }}"
