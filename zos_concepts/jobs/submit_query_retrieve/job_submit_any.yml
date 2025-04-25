@@ -3,9 +3,6 @@
   collections:
     - ibm.ibm_zos_core
   gather_facts: false
-  vars:
-    job_name: "{{ job_name_survey }}"
-    job_contents: "{{ job_contents_survey }}"
   environment: "{{ environment_vars }}"
   tasks:
 
